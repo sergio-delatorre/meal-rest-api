@@ -20,3 +20,6 @@ For example, you can try the endpoint:
    ```sh
    http://localhost:8080/home-project/menu/2021-02-28/MEAL_KIT
    ```
+
+## Explanation/Demonstration
+[Video](https://drive.google.com/file/d/1eMLkHAlMMgl5xOg93HwrqAQ19mSSlwSQ/view?usp=sharing) explaining the implementation and testing the API
