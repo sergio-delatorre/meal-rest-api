@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.home.project.mapper.MenuMapper">
+		
+		
+	<sql id="selectMealWeek">
+
+		SELECT 
+			m.id 		AS 	id
+		,	m.name		AS 	name
+		,	m.type		AS	type
+		,   w.start_date	AS startDate
+		,	w.end_date		AS endDate
+		FROM meal_week mw
+			INNER JOIN meal m
+				ON ( mw.meal_id = m.id )
+			INNER JOIN week w
+				ON ( mw.week_id = w.id )
+
+	</sql>
+
+
+	<select id="searchByDateAndType" resultType="MealResponse" >
+		<include refid="selectMealWeek"/>
+		<where> 	 			
+ 	 		#{date}  BETWEEN w.start_date and w.end_date
+			AND m.type = #{type}
+		</where>	
+	</select>
+	
+</mapper>
